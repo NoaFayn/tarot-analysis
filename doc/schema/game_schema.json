@@ -1,0 +1,196 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://gitea.rainfall.fr/rainfall/tarot-analysis/raw/branch/master/doc/schema/game_schema.json",
+    "title": "Game schema",
+    "description": "This schema represents a tarot game",
+    "type": "object",
+    "properties": {
+      "meta": {
+        "type": "object",
+        "description": "Info about this game",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID of this game"
+          },
+          "ts": {
+            "type": "integer",
+            "title": "Game timestamp",
+            "description": "Unix timestamp"
+          },
+          "name": {
+            "type": "string",
+            "description": "Game name"
+          },
+          "nb_players": {
+            "type": "integer",
+            "description": "Number of players"
+          },
+          "location": {
+            "type": "string",
+            "description": "Game location"
+          },
+          "nb_rounds": {
+            "type": "integer",
+            "description": "Number of rounds of this game"
+          },
+          "state": {
+            "type": "string",
+            "description": "State of this game",
+            "enum": [
+              "finished",
+              "in_progress",
+              "aborted"
+            ]
+          },
+          "winner": {
+            "type": "string",
+            "description": "Name of the winner"
+          }
+        },
+        "required": [
+          "id",
+          "ts",
+          "nb_players",
+          "nb_rounds",
+          "state"
+        ]
+      },
+      "players": {
+        "type": "array",
+        "description": "Info about the players",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Player name"
+            },
+            "email": {
+              "type": "string",
+              "description": "Player contact email"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "rounds": {
+        "description": "Game rounds data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "description": "Status of the game",
+              "enum": [
+                "played",
+                "skipped",
+                "aborted",
+                "other"
+              ]
+            },
+            "dealer": {
+              "type": "integer",
+              "description": "Player ID that deals the cards"
+            },
+            "game_result": {
+              "type": "object",
+              "description": "Data about the result of the game, only if the game was played.",
+              "properties": {
+                "taker": {
+                  "type": "integer",
+                  "description": "Player ID that makes the contract"
+                },
+                "called_card": {
+                  "$ref": "./round_schema.json#/definitions/card"
+                },
+                "called_player": {
+                  "type": "integer",
+                  "description": "Player ID who has the card called (only with 5 players)"
+                },
+                "contract": {
+                  "type": "string",
+                  "description": "Type of contract",
+                  "enum": [
+                    "small",
+                    "guard",
+                    "guard_without",
+                    "guard_against"
+                  ]
+                },
+                "oudlers": {
+                  "type": "integer",
+                  "description": "Oudlers from the attackers",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "score_attack": {
+                  "type": "integer",
+                  "description": "Score obtained by the attackers",
+                  "minimum": 0,
+                  "maximum": 91
+                },
+                "score_defense": {
+                  "type": "integer",
+                  "description": "Score obtained by the defensers",
+                  "minimum": 0,
+                  "maximum": 91
+                },
+                "annonces": {
+                  "type": "object",
+                  "description": "Annonces made",
+                  "patternProperties": {
+                    "^[0-9]+$": {
+                      "type": "array",
+                      "description": "Player ID that is making the annonce",
+                      "items": {
+                        "type": "string",
+                        "description": "Annonce made",
+                        "enum": [
+                          "one-ending",
+                          "8-trumps",
+                          "10-trumps",
+                          "13-trumps",
+                          "slam",
+                          "0-court",
+                          "0-trump"
+                        ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "scores": {
+                  "type": "array",
+                  "description": "Each player score for this round",
+                  "minItems": 3,
+                  "maxItems": 5
+                },
+                "success": {
+                  "type": "boolean",
+                  "description": "Attack succeeded"
+                }
+              },
+              "required": [
+                "taker",
+                "contract",
+                "oudlers",
+                "score_attack",
+                "score_defense",
+                "scores",
+                "success"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "dealer"
+          ]
+        }
+      }
+    }
+  }
+  

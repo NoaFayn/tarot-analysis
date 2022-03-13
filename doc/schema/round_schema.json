@@ -1,0 +1,102 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://gitea.rainfall.fr/rainfall/tarot-analysis/raw/branch/master/doc/schema/round_schema.json",
+    "title": "Round schema",
+    "description": "This schema represents a round in a franch tarot game",
+    "type": "object",
+    "properties": {
+        "meta": {
+            "type": "object",
+            "description": "Info about the round",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique ID of this round"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of this round"
+                },
+                "game_id": {
+                    "type": "string",
+                    "description": "ID of the game associated to this round"
+                }
+            }
+        },
+        "dog": {
+            "type": "object",
+            "description": "Cards in the dog",
+            "properties": {
+                "dealt": {
+                    "type": "array",
+                    "description": "Cards in the dog as dealt",
+                    "items": {
+                        "$ref": "#/definitions/card"
+                    }
+                },
+                "attack": {
+                    "type": "array",
+                    "description": "Cards in the dog chosen by the attacker",
+                    "items": {
+                        "$ref": "#/definitions/card"
+                    }
+                }
+            }
+        },
+        "dealing": {
+            "type": "array",
+            "description": "Cards in hand of every player",
+            "items": {
+                "type": "object",
+                "description": "Player hand",
+                "properties": {
+                    "cards": {
+                        "type": "array",
+                        "description": "Cards in the player's hand",
+                        "items": {
+                            "$ref": "#/definitions/card"
+                        }
+                    }
+                }
+            }
+        },
+        "round": {
+            "type": "array",
+            "description": "All tricks",
+            "items": {
+                "type": "object",
+                "description": "Data of a trick",
+                "properties": {
+                    "opener": {
+                        "type": "integer",
+                        "description": "Player ID that opened this trick"
+                    },
+                    "trick": {
+                        "type": "array",
+                        "description": "Cards played by each player for that trick. The order of the cards is the order played."
+                    },
+                    "taker": {
+                        "type": "integer",
+                        "description": "Player ID that won that trick"
+                    },
+                    "colour": {
+                        "type": "string",
+                        "description": "Colour called for this trick",
+                        "enum": ["S", "D", "H", "C", "O"]
+                    }
+                },
+                "required": [
+                    "trick",
+                    "opener"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "card": {
+            "type": "string",
+            "description": "Card",
+            "pattern": "^([0-9]{1,2}|[RDCV]) [DCHSO]$"
+        }
+    }
+}

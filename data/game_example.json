@@ -1,0 +1,49 @@
+{
+    "$schema": "../doc/schema/game_schema.json",
+    "meta": {
+        "ts": 1647131150,
+        "id": "game-example",
+        "name": "Example Game",
+        "nb_players": 5,
+        "location": "Online",
+        "nb_rounds": 1,
+        "state": "finished",
+        "winner": "Noa"
+    },
+    "players": [
+        {
+            "name": "Noa"
+        },
+        {
+            "name": "Katie"
+        },
+        {
+            "name": "Ryan"
+        },
+        {
+            "name": "Frederick"
+        },
+        {
+            "name": "Charlie"
+        }
+    ],
+    "rounds": [
+        {
+            "status": "played",
+            "dealer": 4,
+            "game_result": {
+                "taker": 2,
+                "called_card": "R S",
+                "called_player": 1,
+                "contract": "guard",
+                "oudlers": 0,
+                "score_attack": 43,
+                "score_defense": 47,
+                "scores": [
+                    76, -76, -152, 76, 76
+                ],
+                "success": false
+            }
+        }
+    ]
+}

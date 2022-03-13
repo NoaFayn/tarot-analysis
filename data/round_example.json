@@ -1,0 +1,299 @@
+{
+    "$schema": "../doc/schema/round_schema.json",
+    "meta": {
+        "id": "round-example",
+        "name": "Example Round",
+        "game_id": "game-example"
+    },
+    "dog": {
+        "dealt": [
+            "1 D",
+            "5 C",
+            "6 H"
+        ],
+        "attack": [
+            "C H",
+            "2 H",
+            "D S"
+        ]
+    },
+    "dealing": [
+        {
+            "cards": [
+                "V D",
+                "7 D",
+                "V C",
+                "2 C",
+                "9 H",
+                "3 H",
+                "1 H",
+                "1 S",
+                "20 O",
+                "15 O",
+                "14 O",
+                "12 O",
+                "6 O",
+                "4 O",
+                "1 O"
+            ]
+        },
+        {
+            "cards": [
+                "6 H",
+                "R S",
+                "R C",
+                "D C",
+                "17 O",
+                "2 S",
+                "2 D",
+                "9 O",
+                "2 O",
+                "1 C",
+                "11 O",
+                "3 O",
+                "3 C",
+                "4 D",
+                "D D"
+            ]
+        },
+        {
+            "cards": [
+                "R H",
+                "C S",
+                "5 C",
+                "7 O",
+                "4 H",
+                "V S",
+                "1 D",
+                "10 O",
+                "5 H",
+                "16 O",
+                "18 O",
+                "8 H",
+                "19 O",
+                "3 S",
+                "5 S"
+            ]
+        },
+        {
+            "cards": [
+                "7 H",
+                "4 S",
+                "7 C",
+                "0 O",
+                "D H",
+                "6 S",
+                "C D",
+                "5 O",
+                "10 H",
+                "6 D",
+                "9 S",
+                "V H",
+                "9 S",
+                "10 S",
+                "10 D"
+            ]
+        },
+        {
+            "cards": [
+                "8 O",
+                "7 S",
+                "4 C",
+                "6 C",
+                "13 O",
+                "21 O",
+                "3 D",
+                "5 D",
+                "8 C",
+                "9 C",
+                "8 D",
+                "9 D",
+                "10 C",
+                "C C",
+                "R D"
+            ]
+        }
+    ],
+    "round": [
+        {
+            "opener": 0,
+            "trick": [
+                "1 H",
+                "6 H",
+                "R H",
+                "7 H",
+                "8 O"
+            ],
+            "taker": 4,
+            "colour": "H"
+        },
+        {
+            "opener": 4,
+            "trick": [
+                "7 S",
+                "1 S",
+                "R S",
+                "C S",
+                "4 S"
+            ],
+            "taker": 1,
+            "colour": "S"
+        },
+        {
+            "opener": 1,
+            "colour": "C",
+            "trick": [
+                "R C",
+                "5 C",
+                "7 C",
+                "4 C",
+                "2 C"
+            ],
+            "taker": 1
+        },
+        {
+            "opener": 1,
+            "colour": "C",
+            "trick": [
+                "D C",
+                "7 O",
+                "0 O",
+                "6 C",
+                "V C"
+            ],
+            "taker": 2
+        },
+        {
+            "opener": 2,
+            "colour": "H",
+            "trick": [
+                "4 H",
+                "D H",
+                "13 O",
+                "3 H",
+                "17 O"
+            ],
+            "taker": 1
+        },
+        {
+            "opener": 1,
+            "colour": "S",
+            "trick": [
+                "2 S",
+                "V S",
+                "6 S",
+                "21 O",
+                "1 O"
+            ],
+            "taker": 4
+        },
+        {
+            "opener": 4,
+            "colour": "D",
+            "trick": [
+                "3 D",
+                "7 D",
+                "2 D",
+                "1 D",
+                "C D"
+            ],
+            "taker": 3
+        },
+        {
+            "opener": 3,
+            "colour": "O",
+            "trick": [
+                "5 O",
+                "5 D",
+                "6 O",
+                "9 O",
+                "10 O"
+            ],
+            "taker": 2
+        },
+        {
+            "opener": 2,
+            "colour": "H",
+            "trick": [
+                "5 H",
+                "10 H",
+                "8 C",
+                "9 H",
+                "2 O"
+            ],
+            "taker": 1
+        },
+        {
+            "opener": 1,
+            "colour": "C",
+            "trick": [
+                "1 C",
+                "16 O",
+                "6 D",
+                "9 C",
+                "20 O"
+            ],
+            "taker": 0
+        },
+        {
+            "opener": 0,
+            "colour": "O",
+            "trick": [
+                "4 O",
+                "11 O",
+                "18 O",
+                "8 S",
+                "8 D"
+            ],
+            "taker": 2
+        },
+        {
+            "opener": 2,
+            "colour": "H",
+            "trick": [
+                "8 H",
+                "V H",
+                "9 D",
+                "12 O",
+                "3 O"
+            ],
+            "taker": 0
+        },
+        {
+            "opener": 0,
+            "colour": "O",
+            "trick": [
+                "14 O",
+                "2 C",
+                "19 O",
+                "9 S",
+                "10 C"
+            ],
+            "taker": 2
+        },
+        {
+            "opener": 2,
+            "colour": "S",
+            "trick": [
+                "3 S",
+                "10 S",
+                "C C",
+                "15 O",
+                "4 D"
+            ],
+            "taker": 0
+        },
+        {
+            "opener": 0,
+            "colour": "D",
+            "trick": [
+                "V D",
+                "D D",
+                "5 S",
+                "10 D",
+                "R D"
+            ],
+            "taker": 4
+        }
+    ]
+}
